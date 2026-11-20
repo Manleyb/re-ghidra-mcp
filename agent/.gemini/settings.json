@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
+
+  "model": {
+    "name": "gemini-3.8-flash"
+  },
+
+  "security": {
+    "auth": {
+      "selectedType": "vertex-ai",
+      "enforcedType": "vertex-ai"
+    }
+  },
+
+  "mcpServers": {
+    "ghidra": {
+      "command": "${HOME}/ghidramcp/venv/bin/ghidra-mcp",
+      "args": ["--ghidra-server", "http://127.0.0.1:8080/"],
+      "timeout": 120000,
+      "description": "LaurieWired GhidraMCP 2.0.0 bridge (GUI mode, plugin on port 8080)"
+    }
+  },
+
+  "tools": {
+    "exclude": [
+      "run_shell_command",
+      "read_file",
+      "read_many_files",
+      "write_file",
+      "replace",
+      "glob",
+      "grep_search",
+      "list_directory",
+      "google_web_search",
+      "web_fetch",
+      "save_memory",
+      "get_internal_docs",
+      "activate_skill"
+    ]
+  },
+
+  "telemetry": {
+    "enabled": true,
+    "target": "local",
+    "outfile": "logs/telemetry.log",
+    "logPrompts": true
+  },
+
+  "privacy": {
+    "usageStatisticsEnabled": false
+  }
+}

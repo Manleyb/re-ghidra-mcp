@@ -1,0 +1,11 @@
+# Run notes: bryce / setup-smoke-test-automated
+- Date: 2026-11-20 (setup verification run, non-interactive, `--approval-mode yolo`, by the setup lead)
+- Model: gemini-3.8-flash (Vertex AI, setup lead's own project)
+- Binary + sha256: test/hello, 86c822e7aa9fca9e41f0e319735b6d2097eeccf851e8c81945703c79b3caf8c9
+- Prompt used: "Using only the Ghidra MCP tools, list the functions in the loaded binary, decompile main and every function it calls, then explain what input the program accepts. Name each tool you call."
+- Tool calls (11): get_program_info x1, list_functions x1, get_function_calls x3, decompile_function_by_address x6
+- Tokens: ~93k prompt (58k cached), 2.3k output, 3.6k thinking
+- Screenshot(s): none (automated run; the interactive run provides the screenshots)
+- Expected outcome: argc==2; strlen==6; djb2(seed 5381, *33) % 7 == 3 -> "ok"/exit 0; else "nope"/exit 1; usage/exit 2
+- Verification result: PARTIAL. All rules recovered correctly (argc, length 6, djb2 constants 0x1505/0x21, mod 7 == 3, outputs and exit codes).
+- Incorrect or unsupported claims: proposed example input "aaaaaf" is wrong. `./test/hello aaaaaf` prints "nope" (exit 1). It was a guess, not computed. A correct example is "aaaaac".

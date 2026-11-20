@@ -1,0 +1,21 @@
+# Secrets / per-user config: never commit
+.env
+*.json.key
+application_default_credentials.json
+
+# Gemini CLI runtime output (copy finished runs into results/ with scripts/save_run.sh)
+agent/logs/*
+!agent/logs/.gitkeep
+
+# Ghidra project files (each member makes their own)
+*.gpr
+*.rep/
+*.lock
+*.lock~
+
+# Build / editor junk
+*.o
+__pycache__/
+.venv/
+.vscode/
+.idea/
