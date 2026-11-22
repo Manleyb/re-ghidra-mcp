@@ -1,0 +1,34 @@
+Case: xor_simple
+Member: Sami
+Phase: Baseline — Gemini + Ghidra MCP
+Model: gemini-3.1-pro-preview
+
+Task:
+Analyze the currently open binary using the available Ghidra MCP tools.
+
+Determine whether the program contains any hidden, encoded, or obfuscated string data. If you find any, identify the technique being used, recover the original plaintext, and explain the evidence that supports your conclusion.
+
+Do not assume the encoding method in advance. Base your answer only on what you can determine from the binary through Ghidra.
+
+Ground truth:
+Obfuscation method: Single-byte XOR
+XOR key: 0x23
+Plaintext: SECRET
+Expected runtime output: Decoded: SECRET
+
+Agent result:
+- Correctly identified single-byte XOR.
+- Correctly identified XOR key 0x23.
+- Correctly recovered the encoded byte sequence.
+- Correctly showed byte-by-byte decoding to S E C R E T.
+- Final written plaintext was reported as "Secret" instead of "SECRET".
+
+Verification:
+Program runtime output: Decoded: SECRET
+Plaintext does not appear directly in strings output.
+
+Overall rating:
+Partial
+
+Reason:
+The reverse-engineering analysis was correct, but the final plaintext capitalization did not exactly match the verified ground truth.
