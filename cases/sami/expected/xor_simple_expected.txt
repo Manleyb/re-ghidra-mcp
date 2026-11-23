@@ -1,0 +1,16 @@
+Test Case: xor_simple
+
+Obfuscation method:
+Single-byte XOR
+
+XOR key:
+0x23
+
+Original plaintext:
+SECRET
+
+Expected runtime output:
+Decoded: SECRET
+
+Verification:
+The plaintext "SECRET" should not appear directly in the compiled binary's strings output.
