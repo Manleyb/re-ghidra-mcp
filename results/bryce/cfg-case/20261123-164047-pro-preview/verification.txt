@@ -1,0 +1,15 @@
+input | real | agent_proposed | match
+------|------|----------------|------
+12+3 | 8 | 15 | DIFF
+5*2 | 14 | 10 | DIFF
+-7 | 7 | -7 | DIFF
+9-3+4 | -1 | 10 | DIFF
+#hi#8 | 8 | 0 | DIFF
+007 | 21 | 7 | DIFF
+3*4*2 | 34 | 24 | DIFF
+<empty> | 0 | 0 | OK
+1+2+3 | 6 | 6 | OK
+9*9*9 | 99 | 729 | DIFF
+-5-5 | 10 | -10 | DIFF
+
+agent proposed logic matches real behaviour on 2/11 inputs (both coincidental)
