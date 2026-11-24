@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
 
   "model": {
-    "name": "gemini-3.8-flash"
+    "name": "gemini-3.1-pro-preview"
   },
 
   "security": {
