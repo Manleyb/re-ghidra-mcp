@@ -1,0 +1,35 @@
+=== clean evaluate() — readable structured control flow (first 16 instrs) ===
+1149:  f3 0f 1e fa            endbr64
+114d:  55                     push   %rbp
+114e:  48 89 e5               mov    %rsp,%rbp
+1151:  48 89 7d d8            mov    %rdi,-0x28(%rbp)
+1155:  c7 45 ec 00 00 00 00   movl   $0x0,-0x14(%rbp)
+115c:  c7 45 f0 00 00 00 00   movl   $0x0,-0x10(%rbp)
+1163:  48 c7 45 f8 00 00 00   movq   $0x0,-0x8(%rbp)
+116a:  00 
+116b:  c7 45 f4 00 00 00 00   movl   $0x0,-0xc(%rbp)
+1172:  e9 35 01 00 00         jmp    12ac <evaluate+0x
+1177:  8b 45 f4               mov    -0xc(%rbp),%eax
+117a:  48 63 d0               movslq %eax,%rdx
+117d:  48 8b 45 d8            mov    -0x28(%rbp),%rax
+1181:  48 01 d0               add    %rdx,%rax
+1184:  0f b6 00               movzbl (%rax),%eax
+1187:  88 45 eb               mov    %al,-0x15(%rbp)
+
+=== OBFUSCATED evaluate() — flattened/MIR-mangled (first 16 instrs) ===
+1140:  48 25 b4 0f e4 5d      and    $0x5de40fb4,%rax
+1146:  48 89 6c 24 f8         mov    %rbp,-0x8(%rsp)
+114b:  66 f7 c6 2e 3f         test   $0x3f2e,%si
+1150:  48 83 ec 08            sub    $0x8,%rsp
+1154:  49 81 e0 8d b6 31 33   and    $0x3331b68d,%r8
+115b:  66 44 89 ce            mov    %r9w,%si
+115f:  03 74 24 04            add    0x4(%rsp),%esi
+1163:  49 89 e3               mov    %rsp,%r11
+1166:  44 0b 4c 24 06         or     0x6(%rsp),%r9d
+116b:  4c 89 dd               mov    %r11,%rbp
+116e:  0a 44 24 06            or     0x6(%rsp),%al
+1172:  44 84 5c 24 04         test   %r11b,0x4(%rsp)
+1177:  48 ba 00 00 00 00 00   movabs $0x0,%rdx
+117e:  00 00 00 
+1181:  66 41 0f c7 f0         rdrand %r8w
+1186:  48 83 c2 63            add    $0x63,%rdx

@@ -1,0 +1,6 @@
+bryce@re:~/Desktop/Ghidramcp$ # did the control-flow complexity survive compilation?
+
+clean  cfg_case_clean :  237 instructions    28 cond-branches
+OBFUSC cfg_case       : 1560 instructions    32 cond-branches    44 jmp
+
+~6x more instructions, +44 unconditional jumps  (Polaris backend/MIR obfuscation)

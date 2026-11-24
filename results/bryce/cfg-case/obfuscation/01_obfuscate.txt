@@ -1,0 +1,10 @@
+bryce@re:~/Desktop/Ghidramcp$ export POLARIS_CLANG="$HOME/polaris-obf/bin/clang"
+bryce@re:~/Desktop/Ghidramcp$ bash cases/bryce/build.sh
+
+[1/4] clean reference build (gcc)
+[2/4] inject backend-obfu marker into a build copy
+[3/4] obfuscated build (Polaris clang backend obfuscation)
+[4/4] results
+cases/bryce/bin/cfg_case: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, stripped
+d22609cf1cebac54bd0b3600fcde064aa1c64de34a9d94902d4d6d6295bcddec  cases/bryce/bin/cfg_case_clean
+77763bb22014e615bc9f68b9e3062306689d9578b4179f43145da0078cfe8ebb  cases/bryce/bin/cfg_case

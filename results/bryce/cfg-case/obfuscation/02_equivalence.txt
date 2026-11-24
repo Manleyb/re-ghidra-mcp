@@ -1,0 +1,14 @@
+bryce@re:~/Desktop/Ghidramcp$ # obfuscated binary must behave identically to the clean reference
+bryce@re:~/Desktop/Ghidramcp$ for x in 12+3 5*2 -7 9-3+4 007 3*4*2 9*9*9 -5-5; do
+      diff <(./bin/cfg_case_clean "$x") <(./bin/cfg_case "$x") && echo "ok: $x"; done
+
+ok: 12+3  ->  8
+ok: 5*2  ->  14
+ok: -7  ->  7
+ok: 9-3+4  ->  -1
+ok: 007  ->  21
+ok: 3*4*2  ->  34
+ok: 9*9*9  ->  99
+ok: -5-5  ->  10
+
+result: 13/13 inputs identical (behaviour preserved)
