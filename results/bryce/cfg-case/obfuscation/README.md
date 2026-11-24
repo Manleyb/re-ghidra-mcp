@@ -9,15 +9,15 @@ nothing changes). The obfuscation that actually works is the **backend/MIR pass*
 `asm volatile("backend-obfu");` as the first statement of the target function. `cases/bryce/build.sh`
 injects this marker into a build copy only; `src/cfg_case.c` stays clean and readable.
 
-## Screenshots (real `xterm` captures under Xvfb, in `xterm/`)
+## Screenshots (real `xterm` captures under Xvfb, in `screenshots/`)
 Captured in an actual xterm terminal emulator (Xvfb virtual display, grabbed with ImageMagick `import`).
 The `.txt` files alongside are the exact session text shown.
 | File | Shows |
 |---|---|
-| `xterm/01_obfuscate.png` | the obfuscated build command and output |
-| `xterm/02_equivalence.png` | obfuscated binary produces identical output to the clean reference (13/13 inputs) |
-| `xterm/03_complexity.png` | instruction counts: clean vs obfuscated (complexity survived compilation) |
-| `xterm/04_disasm.png` | `evaluate()` disassembly before vs after (bogus arithmetic, `test`, `rdrand`, MBA mixing) |
+| `screenshots/01_obfuscate.png` | the obfuscated build command and output |
+| `screenshots/02_equivalence.png` | obfuscated binary produces identical output to the clean reference (13/13 inputs) |
+| `screenshots/03_complexity.png` | instruction counts: clean vs obfuscated (complexity survived compilation) |
+| `screenshots/04_disasm.png` | `evaluate()` disassembly before vs after (bogus arithmetic, `test`, `rdrand`, MBA mixing) |
 
 ## Measured
 - `evaluate()` / `.text`: **237 → ~1,500 instructions** (~6×); **+44** unconditional jumps injected.
